@@ -1,0 +1,25 @@
+{
+  "name": "opense-static-theme",
+  "version": "1.0.0",
+  "description": "Opense static theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Opense Static theme\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaalgergely/opense-static-theme.git"
+  },
+  "keywords": [
+    "theme"
+  ],
+  "author": "Gergely, Gaál",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaalgergely/opense-static-theme/issues"
+  },
+  "homepage": "https://github.com/gaalgergely/opense-static-theme#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

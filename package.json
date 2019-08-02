@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Opense Static theme\"",
-    "serve": "browser-sync start --proxy \"http://opense.static\" --files \"source/**/*.*\"",
+    "serve": "browser-sync start --proxy \"http://opense.static\" --files \"source/**/*.*, compiled/**/*.*\"",
     "concat-js": "concat node_modules/jquery/dist/jquery.min.js node_modules/bootstrap/dist/js/bootstrap.bundle.min.js source/assets/js/jqBootstrapValidation.js source/assets/js/contact_me.js source/assets/js/main.js -o compiled/main.js",
     "clean-css": "cleancss source/assets/css/modern-business.css source/assets/css/style.css -o source/assets/css/style.min.css",
     "concat-css": "concat node_modules/bootstrap/dist/css/bootstrap.min.css source/assets/css/style.min.css -o compiled/style.css",

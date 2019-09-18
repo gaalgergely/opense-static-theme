@@ -4,4 +4,4 @@
     </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="<?php echo base_url(); ?>/_assets/main.js"></script>

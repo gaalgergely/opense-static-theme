@@ -1,0 +1,7 @@
+form .has-error label,
+form .has-error ul[role="alert"]{
+    color:red;
+}
+form .has-error input{
+    border-color:red;
+}

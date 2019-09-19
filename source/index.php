@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once('_partials/head.php'); ?>
+<?php require_once('partials/head.php'); ?>
 
 <body>
 
-  <?php require_once('_partials/navigation.php'); ?>
+  <?php require_once('partials/navigation.php'); ?>
 
   <header>
-    <?php require_once('_partials/carousel.php'); ?>
+    <?php require_once('partials/carousel.php'); ?>
   </header>
 
   <!-- Page Content -->
@@ -164,7 +164,7 @@
   </div>
   <!-- /.container -->
   
-  <?php require_once('_partials/footer.php'); ?>
+  <?php require_once('partials/footer.php'); ?>
 
 </body>
 

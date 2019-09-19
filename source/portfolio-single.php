@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once(dirname(__FILE__) . '/../_partials/head.php'); ?>
+<?php require_once('partials/head.php'); ?>
 
 <body>
 
-    <?php require_once(dirname(__FILE__) . '/../_partials/navigation.php'); ?>
+    <?php require_once('partials/navigation.php'); ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -16,7 +16,7 @@
         </h1>
 
         <?php $page = 'portfolio-single'; ?>
-        <?php require_once(dirname(__FILE__) . '/../_partials/breadcrumb.php'); ?>
+        <?php require_once('partials/breadcrumb.php'); ?>
 
         <!-- Portfolio Item Row -->
         <div class="row">
@@ -75,7 +75,7 @@
     </div>
     <!-- /.container -->
 
-    <?php require_once(dirname(__FILE__) . '/../_partials/footer.php'); ?>
+    <?php require_once('partials/footer.php'); ?>
 
 </body>
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once('_partials/head.php'); ?>
+<?php require_once('partials/head.php'); ?>
 
 <body>
 
-    <?php require_once('_partials/navigation.php'); ?>
+    <?php require_once('partials/navigation.php'); ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -16,7 +16,7 @@
         </h1>
 
         <?php $page = 'services'; ?>
-        <?php require_once('_partials/breadcrumb.php'); ?>
+        <?php require_once('partials/breadcrumb.php'); ?>
 
         <!-- Image Header -->
         <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
@@ -62,7 +62,7 @@
     </div>
     <!-- /.container -->
 
-    <?php require_once('_partials/footer.php'); ?>
+    <?php require_once('partials/footer.php'); ?>
 
 </body>
 

@@ -66,7 +66,7 @@ ECHO npm install
 ECHO You can compile the assets:
 ECHO npm run build
 
-ECHO You watch your changes:
+ECHO You can watch your changes:
 ECHO npm run watch
 
 pause

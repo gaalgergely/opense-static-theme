@@ -59,14 +59,4 @@ ECHO Compiling pricing.html ...
 php source/pricing.php > compiled/pricing.html
 
 ECHO Finished ...
-
-ECHO You can install the node libraries:
-ECHO npm install
-
-ECHO You can compile the assets:
-ECHO npm run build
-
-ECHO You can watch your changes:
-ECHO npm run watch
-
 pause

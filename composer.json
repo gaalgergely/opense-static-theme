@@ -1,0 +1,15 @@
+{
+    "name": "gergely/opense-static-theme",
+    "type": "project",
+    "require": {
+        "fzaninotto/faker": "^1.9@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gaal Gergely",
+            "email": "gaalgergely@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

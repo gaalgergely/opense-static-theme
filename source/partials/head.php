@@ -1,3 +1,9 @@
+<?php 
+    require_once dirname(__FILE__) . '/../../vendor/autoload.php'; 
+    $faker = Faker\Factory::create();
+
+    define('BRAND', 'Opense');
+?>
 <head>
 
     <meta charset="utf-8">
@@ -5,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title><?php echo BRAND; ?> - Bootstrap Template</title>
 
     <link href="assets/style.css" rel="stylesheet">
 

@@ -3,9 +3,6 @@ ECHO Start ...
 
 ECHO Setup directories if needed ...
 if not exist "compiled" mkdir compiled
-cd compiled
-if not exist "assets" mkdir assets
-cd ..
 
 ECHO Compiling index.html ...
 php source/index.php > compiled/index.html

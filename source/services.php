@@ -19,43 +19,23 @@
         <?php require_once('partials/breadcrumb.php'); ?>
 
         <!-- Image Header -->
-        <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+        <img class="img-fluid rounded mb-4" src="<?php echo $faker->imageUrl(1200, 300, 'business'); ?>" alt="<?php echo $faker->sentence(5, true); ?>">
 
         <!-- Marketing Icons Section -->
         <div class="row">
+            <?php for($i=1; $i<=3; $i++){ ?>
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
+                    <h4 class="card-header"><?php echo ucfirst($faker->words(2, true)); ?></h4>
                     <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                        <p class="card-text"><?php echo $faker->sentences(2, true); ?></p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Learn More</a>
+                        <a href="#" class="btn btn-primary"><?php echo ucfirst($faker->words(2, true)); ?></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
-                    <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
-                    <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         <!-- /.row -->
 

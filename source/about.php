@@ -39,14 +39,30 @@
         <h2>Our Team</h2>
 
         <div class="row">
-            <?php //@todo try to change it to better profile images with for example pexels.com ?>
-            <?php for($i=1; $i<=3; $i++){ ?>
+            
+            <?php
+                $params = [
+                    'key' => '13744865-04da6d8b4c44773dcfe776a7c',
+                    'q' => 'face',
+                    'image_type' => 'photo',
+                    'category' => 'people',
+                    'orientation' => 'horizontal',
+                    'min_width' => '750',
+                    'editors_choice' => true,
+                    'safesearch' => true,
+                    'order' => 'popular',
+                    'per_page' => 3
+                ];
+                $response = json_decode($client->request('GET', 'https://pixabay.com/api', ['query' => $params])->getBody()->getContents(), true); 
+            ?>
+            
+            <?php foreach($response['hits'] as $image){ ?>
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
-                    <img class="card-img-top" src="<?php echo $faker->imageUrl(750, 450, 'people'); ?>" alt="<?php echo $faker->sentence(5, true); ?>">
+                    <img class="card-img-top" src="<?php echo $image['webformatURL']; ?>" alt="<?php echo $faker->sentence(5, true); ?>">
                     <div class="card-body">
                         <h4 class="card-title"><?php echo $faker->name; ?></h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Position</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $faker->jobTitle; ?></h6>
                         <p class="card-text"><?php echo $faker->sentences(2, true); ?></p>
                     </div>
                     <div class="card-footer">

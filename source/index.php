@@ -71,7 +71,7 @@
                 <p><?php echo $faker->paragraph(5, true); ?></p>
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid rounded" src="<?php echo $faker->imageUrl(700, 450, 'business'); ?>" alt="<?php echo $faker->sentence(5, true) ?>">
+                <img class="img-fluid rounded" src="<?php echo $faker->imageUrl(700, 450, 'business'); ?>" alt="<?php echo $faker->sentence(5, true); ?>">
             </div>
         </div>
         <!-- /.row -->

@@ -26,32 +26,40 @@
             <div class="col-lg-8">
 
                 <!-- Preview Image -->
-                <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+                <img class="img-fluid rounded" src="<?php echo $faker->imageUrl(900, 300, 'business'); ?>" alt="<?php echo $faker->sentence(5, true); ?>">
 
                 <hr>
 
                 <!-- Date/Time -->
-                <p>Posted on January 1, 2017 at 12:00 PM</p>
+                <p>Posted on <?php $faker->dateTime($max = 'now'); ?></p>
 
                 <hr>
 
                 <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+                <p class="lead"><?php echo $faker->sentence(rand(3, 5), true); ?></p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+                <?php $paragraphs = $faker->paragraphs(rand(2, 4), false); ?>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+                <?php 
+                foreach($paragraphs as $paragraph){
+                    echo "<p>$paragraph</p>";    
+                } 
+                ?>
 
                 <blockquote class="blockquote">
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">Someone famous in
-                        <cite title="Source Title">Source Title</cite>
+                    <p class="mb-0"><?php echo $faker->sentence(3, true); ?></p>
+                    <footer class="blockquote-footer"><?php echo $faker->name; ?> in
+                        <cite title="Source Title"><?php echo ucfirst($faker->words(2, true)); ?></cite>
                     </footer>
                 </blockquote>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+                <?php $paragraphs = $faker->paragraphs(rand(2, 4), false); ?>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+                <?php 
+                foreach($paragraphs as $paragraph){
+                    echo "<p>$paragraph</p>";    
+                } 
+                ?>
 
                 <hr>
 
@@ -59,46 +67,56 @@
                 <div class="card my-4">
                     <h5 class="card-header">Leave a Comment:</h5>
                     <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
+                        <form id="commentForm">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Full Name:</label>
+                                    <input type="text" class="form-control" id="name" required="" data-validation-required-message="Please enter your name.">
+                                    <p class="help-block"></p>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" id="comment" required="" data-validation-required-message="Please enter your comment."></textarea>
+                                <p class="help-block"></p>
+                            </div>
+                            <button type="submit" id="sendCommentButton" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
 
+                <?php
+                    $params = [
+                        'exc' => 'gender,name,location,email,login,registered,dob,phone,cell,id,nat',
+                        'noinfo' => true,
+                        'results' => 4
+                    ];
+                    $response = json_decode($client->request('GET', 'https://randomuser.me/api/', ['query' => $params])->getBody()->getContents(), true); 
+                ?>
                 <!-- Single Comment -->
                 <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <img class="d-flex mr-3 rounded-circle" src="<?php echo $response['results'][0]['picture']['medium'] ?>" alt="<?php echo $faker->name; ?>">
                     <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><?php echo $faker->name; ?></h5>
+                        <?php echo $faker->sentences(rand(3, 6), true); ?>
                     </div>
                 </div>
 
                 <!-- Comment with nested comments -->
                 <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <img class="d-flex mr-3 rounded-circle" src="<?php echo $response['results'][1]['picture']['medium'] ?>" alt="<?php echo $faker->name; ?>">
                     <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><?php echo $faker->name; ?></h5>
+                        <?php echo $faker->sentences(rand(3, 6), true); ?>
 
+                        <?php for($i=1; $i<=2; $i++){ ?>
                         <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                            <img class="d-flex mr-3 rounded-circle" src="<?php echo $response['results'][$i+1]['picture']['medium'] ?>" alt="<?php echo $faker->name; ?>">
                             <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                <h5 class="mt-0"><?php echo $faker->name; ?></h5>
+                                <?php echo $faker->sentences(rand(3, 6), true); ?>
                             </div>
                         </div>
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
+                        <?php } ?>
 
                     </div>
                 </div>

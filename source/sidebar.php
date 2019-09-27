@@ -45,7 +45,15 @@
             <!-- Content Column -->
             <div class="col-lg-9 mb-4">
                 <h2>Section Heading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+                <?php 
+        
+                $paragraphs = $faker->paragraphs(rand(5, 8), false);
+
+                foreach($paragraphs as $paragraph){
+                    echo "<p>$paragraph</p>";    
+                }
+
+                ?>
             </div>
         </div>
         <!-- /.row -->
